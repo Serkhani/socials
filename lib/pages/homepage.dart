@@ -190,10 +190,15 @@ class MyHomePage extends StatelessWidget {
           elevation: 0.0,
           title: Text(
             "Socials",
-            style: TextStyle(color: Theme.of(context).primaryColor),
+            style: TextStyle(
+              color: Theme.of(context).primaryColor,
+            ),
           ),
           actions: const [
-            Padding(padding: EdgeInsets.all(8.0), child: ProfileIcon()),
+            Padding(
+              padding: EdgeInsets.all(8.0),
+              child: ProfileIcon(),
+            ),
           ],
         ),
         body: Column(
@@ -207,6 +212,7 @@ class MyHomePage extends StatelessWidget {
                     people: people,
                   ),
                 )),
+                // notify user of any recent scans from others
                 const ScanNotification(),
               ],
             ),
@@ -215,7 +221,11 @@ class MyHomePage extends StatelessWidget {
                 shrinkWrap: true,
                 itemBuilder: (context, index) {
                   return SocialCard(
-                      person: people[index], ifSwitch: index % 2 == 0);
+                    person: people[index],
+                    // determine if it is the right index to perform switch up
+                    //NB: switches on every other person
+                    ifSwitch: index % 2 == 0,
+                  );
                 },
                 separatorBuilder: (context, index) {
                   return const SizedBox(height: 5.0);
