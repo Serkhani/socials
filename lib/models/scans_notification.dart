@@ -10,10 +10,10 @@ class ScanNotification extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         Get.to(
-            const MyHomePage(
-              heading: "Scans",
-              ishistoryPage: true,
-            ),
+            () => const MyHomePage(
+                  heading: "Scans",
+                  ishistoryPage: true,
+                ),
             popGesture: false,
             transition: Transition.leftToRightWithFade);
       },

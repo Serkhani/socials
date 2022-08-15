@@ -35,7 +35,7 @@ class ProfileIcon extends StatelessWidget {
           )),
       child: IconButton(
         onPressed: () {
-          Get.to(const Profile(person: user));
+          Get.to(() => const Profile(person: user));
         },
         icon: Icon(
           Icons.person_outline_sharp,
