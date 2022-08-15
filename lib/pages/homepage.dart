@@ -7,8 +7,11 @@ import 'package:socials/models/searchbar.dart';
 import 'package:socials/models/socialcard.dart';
 
 class MyHomePage extends StatelessWidget {
-  const MyHomePage({Key? key}) : super(key: key);
-
+  const MyHomePage(
+      {Key? key, this.heading = "Socials", this.ishistoryPage = false})
+      : super(key: key);
+  final String heading;
+  final bool ishistoryPage;
   @override
   Widget build(BuildContext context) {
     List<Person> people = const [
@@ -186,18 +189,28 @@ class MyHomePage extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
+          automaticallyImplyLeading: false,
           backgroundColor: Theme.of(context).scaffoldBackgroundColor,
           elevation: 0.0,
           title: Text(
-            "Socials",
+            heading,
             style: TextStyle(
               color: Theme.of(context).primaryColor,
             ),
           ),
-          actions: const [
+          actions: [
             Padding(
-              padding: EdgeInsets.all(8.0),
-              child: ProfileIcon(),
+              padding: const EdgeInsets.all(8.0),
+              child: ishistoryPage
+                  ? IconButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      icon: const Icon(
+                        Icons.cancel_sharp,
+                        color: Colors.white,
+                      ))
+                  : const ProfileIcon(),
             ),
           ],
         ),
@@ -213,7 +226,8 @@ class MyHomePage extends StatelessWidget {
                   ),
                 )),
                 // notify user of any recent scans from others
-                const ScanNotification(),
+                //does not show in the scans page
+                ishistoryPage ? Container() : const ScanNotification(),
               ],
             ),
             Expanded(
@@ -221,6 +235,7 @@ class MyHomePage extends StatelessWidget {
                 shrinkWrap: true,
                 itemBuilder: (context, index) {
                   return SocialCard(
+                    //building with people for now but will change to specific data from the server
                     person: people[index],
                     // determine if it is the right index to perform switch up
                     //NB: switches on every other person
@@ -230,7 +245,7 @@ class MyHomePage extends StatelessWidget {
                 separatorBuilder: (context, index) {
                   return const SizedBox(height: 5.0);
                 },
-                itemCount: people.length,
+                itemCount: ishistoryPage ? people.length - 7 : people.length,
               ),
             ),
           ],
