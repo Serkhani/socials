@@ -16,7 +16,7 @@ class _SocialCardState extends State<SocialCard> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 4.0),
       child: GestureDetector(
-        onTap: () => Get.to(Profile(person: widget.person)),
+        onTap: () => Get.to(() => Profile(person: widget.person)),
         child: Stack(
           alignment: Alignment.center,
           children: [
