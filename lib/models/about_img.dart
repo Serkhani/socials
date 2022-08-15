@@ -9,7 +9,7 @@ class AboutImg extends StatelessWidget {
     return Hero(
       tag: person.name,
       child: Container(
-        height: MediaQuery.of(context).size.height * 0.4,
+        height: MediaQuery.of(context).size.height * 0.6,
         decoration: BoxDecoration(
           boxShadow: const [
             BoxShadow(
