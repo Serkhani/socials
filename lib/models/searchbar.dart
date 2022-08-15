@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:socials/Utils/person.dart';
+import 'package:socials/models/socialcard.dart';
+import 'package:socials/pages/profile.dart';
 
 class SearchBar extends StatelessWidget {
   final List<Person> people;
@@ -52,7 +55,17 @@ class Search extends SearchDelegate {
 
   @override
   Widget buildResults(BuildContext context) {
-    return Container(height: 100, width: 100.0, color: Colors.blue);
+    return ListView.builder(
+      itemCount: people.length,
+      itemBuilder: (context, index) {
+        return people[index].name.toLowerCase().contains(query.toLowerCase())
+            ? Padding(
+                padding: const EdgeInsets.symmetric(vertical: 2.0),
+                child: SocialCard(person: people[index]),
+              )
+            : Container();
+      },
+    );
   }
 
   @override
@@ -67,9 +80,14 @@ class Search extends SearchDelegate {
                     onTap: () {
                       close(context, null);
                       // Get.to(ChatScreen(chat: people[index]),
-                      //     curve: Curves.decelerate);
+                      //
+                      Get.to(
+                        Profile(person: people[index]),
+                        curve: Curves.decelerate,
+                      );
                     },
-                    leading: const CircleAvatar(),
+                    leading: CircleAvatar(
+                        foregroundImage: NetworkImage(people[index].image)),
                     title: Text(people[index].name,
                         style: Theme.of(context).textTheme.titleMedium)))
             : Container();
