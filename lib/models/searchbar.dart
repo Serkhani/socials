@@ -86,8 +86,11 @@ class Search extends SearchDelegate {
                         curve: Curves.decelerate,
                       );
                     },
-                    leading: CircleAvatar(
-                        foregroundImage: NetworkImage(people[index].image)),
+                    leading: Hero(
+                      tag: people[index].name,
+                      child: CircleAvatar(
+                          foregroundImage: NetworkImage(people[index].image)),
+                    ),
                     title: Text(people[index].name,
                         style: Theme.of(context).textTheme.titleMedium)))
             : Container();
