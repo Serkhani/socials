@@ -215,11 +215,10 @@ class MyHomePage extends StatelessWidget {
                 shrinkWrap: true,
                 itemBuilder: (context, index) {
                   return SocialCard(
-                    person: people[index],
-                  );
+                      person: people[index], ifSwitch: index % 2 == 0);
                 },
                 separatorBuilder: (context, index) {
-                  return const SizedBox(height: 10.0);
+                  return const SizedBox(height: 5.0);
                 },
                 itemCount: people.length,
               ),
