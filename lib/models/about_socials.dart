@@ -51,7 +51,13 @@ class AboutSocials extends StatelessWidget {
                   return Card(
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(12.0)),
-                      child: ListTile(title: Text(socials[index].platform)));
+                      child: ListTile(
+                        leading: CircleAvatar(
+                          foregroundImage: AssetImage(
+                              'assets/icons/${socials[index].platform.toLowerCase()}.jpg'),
+                        ),
+                        title: Text(socials[index].platform),
+                      ));
                 },
               ),
             )
