@@ -57,6 +57,7 @@ class AboutSocials extends StatelessWidget {
                               'assets/icons/${socials[index].platform.toLowerCase()}.jpg'),
                         ),
                         title: Text(socials[index].platform),
+                        trailing: const Icon(Icons.arrow_forward_ios),
                       ));
                 },
               ),
