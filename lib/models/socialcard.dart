@@ -43,7 +43,7 @@ class SocialCard extends StatelessWidget {
                           : const EdgeInsets.only(left: 65.0),
                       child: Text(
                         person.about,
-                        maxLines: 3,
+                        maxLines: 4,
                         overflow: TextOverflow.fade,
                         style: Theme.of(context).primaryTextTheme.titleSmall,
                       ),
