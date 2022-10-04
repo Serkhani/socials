@@ -2,18 +2,12 @@
 
 A flutter app that mimics an individual's ✨business card✨ but with a QRcode. It keeps record of all the user's profiles for various social media platforms that the user has signed up for.
 
-https://user-images.githubusercontent.com/6053155/170525726-2db23ae0-97b8-4bd1-8c95-00da60ce099f.mp4
+## App In Use:
 
-All done WITHOUT video editing or asset compiling. Just pure ✨programming magic✨.
 
-Created by Lewis Menelaws & [TMRRW](https://tmrrwinc.ca)
+https://user-images.githubusercontent.com/66341820/193716851-319a2a6c-5ef3-4cf3-b126-b3cf4b0248ac.mp4
 
-[<picture>
 
-  <source media="(prefers-color-scheme: dark)" srcset="https://user-images.githubusercontent.com/6053155/170528535-e274dc0b-7972-4b27-af22-637f8c370133.png">
-  <source media="(prefers-color-scheme: light)" srcset="https://user-images.githubusercontent.com/6053155/170528582-cb6671e7-5a2f-4bd4-a048-0e6cfa54f0f7.png">
-  <img src="https://user-images.githubusercontent.com/6053155/170528582-cb6671e7-5a2f-4bd4-a048-0e6cfa54f0f7.png" width="350">
-</picture>](https://tmrrwinc.ca)
 
 ## Motivation 🤔
 
